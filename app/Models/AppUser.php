@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class AppUser extends Model
+class AppUser extends Model implements JWTSubject
 {
-    use HasFactory;
+
     protected $table = 'app_users';
     protected $fillable = [
         'employee_id', 'company_id', 'login_email', 'login_password', 'face_train_path',
@@ -23,5 +23,17 @@ class AppUser extends Model
     public function presences()
     {
         return $this->hasMany(WkEmployeeRealitationAttendance::class, 'employee_id');
+    }
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [
+            'company_code' => $this->company->code,
+        ];
     }
 }
