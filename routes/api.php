@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PresensiController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\LogRemoteMobileSwapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +21,14 @@ use App\Http\Controllers\AuthController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::middleware('auth.jwt')->group(function () {
+Route::middleware('auth:api')->group(function () {
+
 });
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/change-password', [AuthController::class, 'changePassword']);
+Route::post('/submit-presensi', [LogRemoteMobileSwapController::class, 'submitPresensi']);
+Route::get('/presensi', [PresensiController::class, 'list']);
+Route::get('/presensi/{id}', [PresensiController::class, 'detail']);
+Route::post('/presensi/search', [PresensiController::class, 'search']);
+Route::get('/notifications', [NotificationController::class, 'list']);
+Route::get('/notifications/{id}', [NotificationController::class, 'detail']);

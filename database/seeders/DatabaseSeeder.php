@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
     {
         $this ->call(AppUserSeeder::class);
         $this ->call(CompanySeeder::class);
+        $this ->call(WkEmployeeRealitationAttendancesSeeder::class);
+        $this ->call(NotificationsSeeder::class);
+        $this ->call(LogRemoteMobileSwapsSeeder::class);
     }
 }

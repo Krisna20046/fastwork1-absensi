@@ -49,4 +49,26 @@ class AuthController extends Controller
         return response()->json(['token' => $token, 'user' => $userInfo]);
     }
 
+
+    public function changePassword(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|min:8',
+            'confirm_password' => 'required|same:new_password',
+        ]);
+
+        // Verifikasi password lama
+        if ($user->password !== md5($request->old_password)) {
+            return response()->json(['message' => 'Password lama salah'], 401);
+        }
+
+        // Ganti password
+        $user->password = md5($request->new_password);
+        $user->save();
+
+        return response()->json(['message' => 'Password berhasil diubah']);
+    }
 }
