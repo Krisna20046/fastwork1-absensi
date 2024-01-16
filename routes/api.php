@@ -21,12 +21,16 @@ use App\Http\Controllers\LogRemoteMobileSwapController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::middleware('auth:api')->group(function () {
+// Route::middleware('auth:api')->group(function () {
 
-});
+// });
+
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/change-password', [AuthController::class, 'changePassword']);
-Route::post('/submit-presensi', [LogRemoteMobileSwapController::class, 'submitPresensi']);
+Route::group(['middleware' => 'jwt.auth'], function () {
+    Route::post('/change-password', [AuthController::class, 'changePassword']);
+    Route::post('/submit-presensi', [LogRemoteMobileSwapController::class, 'submitPresensi']);
+});
+
 Route::get('/presensi', [PresensiController::class, 'list']);
 Route::get('/presensi/{id}', [PresensiController::class, 'detail']);
 Route::post('/presensi/search', [PresensiController::class, 'search']);

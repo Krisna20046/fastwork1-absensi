@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class AppUser extends Model implements JWTSubject
+class AppUser extends Authenticatable implements JWTSubject
 {
 
     protected $table = 'app_users';
