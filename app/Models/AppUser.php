@@ -16,6 +16,10 @@ class AppUser extends Authenticatable implements JWTSubject
         'updated_by', 'coor_lat', 'coor_lng'
     ];
 
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
     public function company()
     {
         return $this->belongsTo(Company::class, 'company_id');

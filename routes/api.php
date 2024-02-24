@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\LogRemoteMobileSwapController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('/change-password', [AuthController::class, 'changePassword']);
     Route::post('/submit-presensi', [LogRemoteMobileSwapController::class, 'submitPresensi']);
+    Route::post('/profile', [ProfileController::class, 'update']);
 });
 
 Route::get('/presensi', [PresensiController::class, 'list']);
