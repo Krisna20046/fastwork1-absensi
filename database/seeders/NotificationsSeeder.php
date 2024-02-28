@@ -23,6 +23,9 @@ class NotificationsSeeder extends Seeder
                 'company_id' => $faker->numberBetween(1, 5),
                 'notif_type' => $faker->randomElement(['Info', 'Warning', 'Error']),
                 'message' => $faker->sentence,
+                'capture_longitude' => $faker->longitude,
+                'capture_latitude' => $faker->latitude,
+                'capture_selfie' => $faker->imageUrl(640, 480),
             ]);
 
             foreach (range(1, 5) as $subIndex) {

@@ -23,6 +23,9 @@ class WkEmployeeRealitationAttendancesSeeder extends Seeder
             'attendance_status' => $faker->randomElement(['Hadir', 'Sakit', 'Izin']),
             'is_paid_day' => $faker->boolean,
             'keterangan' => $faker->text,
+            'capture_longitude' => $faker->longitude,
+            'capture_latitude' => $faker->latitude,
+            'capture_selfie' => $faker->imageUrl(640, 480),
             'created_on' => now(),
             'updated_on' => now(),
             'created_by' => 1, // Sesuaikan dengan user ID yang sesuai
