@@ -31,6 +31,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('/change-password', [AuthController::class, 'changePassword']);
     Route::post('/submit-presensi', [LogRemoteMobileSwapController::class, 'submitPresensi']);
     Route::post('/profile', [ProfileController::class, 'update']);
+    Route::post('/update-notif', [ProfileController::class, 'updateNotif']);
+    Route::post('/update-email-notif', [ProfileController::class, 'updateEmailNotif']);
 });
 
 Route::get('/presensi', [PresensiController::class, 'list']);
