@@ -18,6 +18,9 @@ class CreateNotificationsTable extends Migration
             $table->unsignedBigInteger('company_id');
             $table->string('notif_type');
             $table->text('message');
+            $table->string('capture_longitude')->nullable();;
+            $table->string('capture_latitude')->nullable();;
+            $table->string('capture_selfie')->nullable();;
             $table->timestamps();
         });
     }

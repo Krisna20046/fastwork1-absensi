@@ -20,6 +20,9 @@ class CreateWkEmployeeRealitationAttendancesTable extends Migration
             $table->string('attendance_status');
             $table->boolean('is_paid_day');
             $table->text('keterangan')->nullable();
+            $table->string('capture_longitude')->nullable();;
+            $table->string('capture_latitude')->nullable();;
+            $table->string('capture_selfie')->nullable();;
             $table->timestamp('created_on')->useCurrent();
             $table->timestamp('updated_on')->nullable();
             $table->unsignedBigInteger('created_by');

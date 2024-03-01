@@ -30,6 +30,8 @@ class AppUserSeeder extends Seeder
             'updated_by' => null,
             'coor_lat' => -6.2088,
             'coor_lng' => 106.8456,
+            'email_notif' => 1,
+            'active_notification' => 1
         ]);
     }
 }

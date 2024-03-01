@@ -36,7 +36,6 @@ class AuthController extends Controller
             // Tambahkan informasi pengguna ke dalam respons
             $userInfo = [
                 'id' => $user->id,
-                'username' => $user->username,
                 'email' => $user->login_email,
                 'company_code' => $user->company_code,
                 // tambahkan informasi pengguna lainnya yang diperlukan

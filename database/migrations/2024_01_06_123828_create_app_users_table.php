@@ -26,8 +26,10 @@ class CreateAppUsersTable extends Migration
             $table->timestamp('updated_on')->nullable();
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('updated_by')->nullable();
-            $table->decimal('coor_lat', 10, 8)->nullable();
-            $table->decimal('coor_lng', 11, 8)->nullable();
+            $table->string('coor_lat', 10, 8)->nullable();
+            $table->string('coor_lng', 11, 8)->nullable();
+            $table->unsignedBigInteger('email_notif')->nullable();
+            $table->unsignedBigInteger('active_notification')->nullable();
 
             // Add any additional columns as needed
 

@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this ->call(WkEmployeeRealitationAttendancesSeeder::class);
         $this ->call(NotificationsSeeder::class);
         $this ->call(LogRemoteMobileSwapsSeeder::class);
+        $this ->call(EmployeesTableSeeder::class);
     }
 }
